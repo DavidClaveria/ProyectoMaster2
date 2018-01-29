@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-ene-2018 10:54:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Fecha" table="fecha" catalog="proyectotcr" optimistic-lock="version">
+        <id name="fecha" type="string">
+            <column name="fecha" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="diaSemana" type="string">
+            <column name="diaSemana" length="10" not-null="true" />
+        </property>
+        <property name="week" type="string">
+            <column name="week" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

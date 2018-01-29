@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-ene-2018 10:54:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.User" table="user" catalog="proyectotcr" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" not-null="true" />
+        </property>
+        <property name="apellido1" type="string">
+            <column name="apellido1" length="50" not-null="true" />
+        </property>
+        <property name="apellido2" type="string">
+            <column name="apellido2" length="50" not-null="true" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="9" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="30" not-null="true" />
+        </property>
+        <property name="trabajador" type="boolean">
+            <column name="trabajador" not-null="true" />
+        </property>
+        <property name="coordinador" type="boolean">
+            <column name="coordinador" not-null="true" />
+        </property>
+        <set name="partes" table="parte" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" />
+            </key>
+            <one-to-many class="pojos.Parte" />
+        </set>
+    </class>
+</hibernate-mapping>

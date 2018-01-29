@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-ene-2018 10:54:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Parte" table="parte" catalog="proyectotcr" optimistic-lock="version">
+        <id name="idParte" type="int">
+            <column name="id_parte" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="proyecto" class="pojos.Proyecto" fetch="select">
+            <column name="proyecto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojos.User" fetch="select">
+            <column name="id_usuario" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="trabajado" type="string">
+            <column name="trabajado" length="30" not-null="true" />
+        </property>
+        <property name="coordinador" type="string">
+            <column name="coordinador" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="cliente" type="string">
+            <column name="cliente" length="50" not-null="true" />
+        </property>
+        <property name="delegacion" type="string">
+            <column name="delegacion" length="20" not-null="true" />
+        </property>
+        <property name="obras" type="string">
+            <column name="obras" length="50" not-null="true" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" length="25" not-null="true" />
+        </property>
+        <property name="concepto" type="string">
+            <column name="concepto" length="100" not-null="true" />
+        </property>
+        <property name="dieta" type="string">
+            <column name="dieta" length="10" not-null="true" />
+        </property>
+        <property name="comentarios" type="string">
+            <column name="comentarios" length="150" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
